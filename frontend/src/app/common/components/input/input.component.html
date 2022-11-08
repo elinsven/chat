@@ -1,2 +1,5 @@
-<p class="margin-bottom-1">{{ title }}</p>
-<input [type]="type">
+<label>
+  <p class="margin-bottom-1">{{ title }}</p>
+</label>
+<input [type]="type" (blur)="onTouched()" (value)="value"
+  [class.error]="form?.get(formControlName)?.touched && form?.get(formControlName)?.invalid">

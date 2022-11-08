@@ -6,3 +6,7 @@ input {
   padding-top: var(--space-3);
   padding-bottom: var(--space-1);
 }
+
+.error {
+  border-color: var(--error-500);
+}

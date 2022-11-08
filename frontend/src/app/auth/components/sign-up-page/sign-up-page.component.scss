@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.sign-up-container {
+  width: 450px;
+  padding: var(--space-16) var(--space-8);
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+#or-text {
+  margin: 0 var(--space-2);
+  font-style: italic;
+  color: var(--text-subdued);
+}
+
+.or-line {
+  flex: 1;
+}

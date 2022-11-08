@@ -8,7 +8,9 @@ import { Color } from '../../models/color';
 })
 export class ButtonComponent implements OnInit {
   @Input() buttonTitle: string;
+  @Input() type: any;
   @Input() color: Color = "primary";
+  @Input() isDisabled: boolean = false;
 
   constructor() { }
 

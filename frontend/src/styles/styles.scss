@@ -1,4 +1,4 @@
-@import "./shared.scss";
+@import "./theme.scss";
 
 body,
 html {
@@ -8,4 +8,32 @@ html {
 
 body {
   font-family: Roboto-Regular;
+}
+
+.margin-bottom-1 {
+  margin-bottom: var(--space-1);
+}
+
+.margin-bottom-2 {
+  margin-bottom: var(--space-2);
+}
+
+.margin-bottom-8 {
+  margin-bottom: var(--space-8);
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-row-justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-row-align-center {
+  display: flex;
+  align-items: center;
 }

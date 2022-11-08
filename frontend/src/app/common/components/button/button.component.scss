@@ -33,3 +33,19 @@ button {
 }
 
 .warn {}
+
+button:disabled,
+button[disabled] {
+  border: 1px solid var(--border);
+  background-color: #cccccc;
+  color: var(--text-subdued);
+  cursor: default;
+
+  &:hover {
+    background-color: #cccccc;
+  }
+
+  &:active {
+    background-color: #cccccc;
+  }
+}

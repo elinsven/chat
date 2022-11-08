@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="sign-up-container">
+    <h1 class="margin-bottom-8">Sign up</h1>
+
+    <!-- Sign in form -->
+    <form [formGroup]="signUpForm" (ngSubmit)="submit(signUpForm.value)">
+
+      <div class=" margin-bottom-2">
+        <app-input title="Username" type="text" formControlName="username" [form]="signUpForm"></app-input>
+        <app-error [isVisible]="signUpForm.get('username').touched && signUpForm.get('username').hasError('required')"
+          message="Enter a username.">
+        </app-error>
+      </div>
+
+      <div class=" margin-bottom-2">
+        <app-input title="Email address" type="email" formControlName="email" [form]="signUpForm"></app-input>
+        <app-error [isVisible]="signUpForm.get('email').touched && signUpForm.get('email').hasError('email')"
+          message="Enter a valid email address.">
+        </app-error>
+        <app-error [isVisible]="signUpForm.get('email').touched && signUpForm.get('email').hasError('required')"
+          message="Enter a email address.">
+        </app-error>
+      </div>
+
+      <div class="margin-bottom-8">
+        <app-input title="Password" type="password" formControlName="password" [form]="signUpForm"></app-input>
+        <app-error [isVisible]="signUpForm.get('password').touched && signUpForm.get('password').hasError('required')"
+          message="Enter a password.">
+        </app-error>
+      </div>
+
+      <!-- Sign up button -->
+      <div class="margin-bottom-8">
+        <app-button type="submit" [isDisabled]="signUpForm.invalid" buttonTitle="Sign up">
+        </app-button>
+      </div>
+    </form>
+
+    <div class="margin-bottom-8 flex-center">
+      <div class="or-line">
+        <app-divider></app-divider>
+      </div>
+      <p id="or-text">or</p>
+      <div class="or-line">
+        <app-divider></app-divider>
+      </div>
+    </div>
+
+    <!-- Sign in with Google button -->
+    <div class="margin-bottom-8">
+      <app-button buttonTitle="Sign up with Google"></app-button>
+    </div>
+
+  </div>
+</div>
