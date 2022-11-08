@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="sign-in-container">
+    <h1 class="margin-bottom-8">Sign in</h1>
+
+    <form [formGroup]="signInForm" (ngSubmit)="submit(signInForm.value)">
+
+      <div class=" margin-bottom-2">
+        <app-input title="Email address" type="email" formControlName="email" [form]="signInForm"></app-input>
+        <app-error [isVisible]="signInForm.get('email').touched && signInForm.get('email').hasError('email')"
+          message="Enter a valid email address.">
+        </app-error>
+        <app-error [isVisible]="signInForm.get('email').touched && signInForm.get('email').hasError('required')"
+          message="Enter your email address.">
+        </app-error>
+      </div>
+
+      <div class="margin-bottom-8">
+        <app-input title="Password" type="password" formControlName="password" [form]="signInForm"></app-input>
+        <app-error [isVisible]="signInForm.get('password').touched && signInForm.get('password').hasError('required')"
+          message="Enter your password.">
+        </app-error>
+      </div>
+
+      <div class="margin-bottom-2">
+        <app-button type="submit" [isDisabled]="signInForm.invalid" buttonTitle="Sign in">
+        </app-button>
+      </div>
+    </form>
+
+    <p class="margin-bottom-8" id="forgot-password-link"><a routerLink="/forgot-password">Forgot password?</a></p>
+
+    <div class="margin-bottom-8 flex-center">
+      <div class="or-line">
+        <app-divider></app-divider>
+      </div>
+      <p id="or-text">or</p>
+      <div class="or-line">
+        <app-divider></app-divider>
+      </div>
+    </div>
+
+    <div class="margin-bottom-8">
+      <app-button buttonTitle="Sign in with Google"></app-button>
+    </div>
+
+    <p id="sign-up-link">Don't have an account?&nbsp;<a routerLink="/sign-up">Sign up.</a></p>
+
+  </div>
+</div>
