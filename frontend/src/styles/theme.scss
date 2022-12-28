@@ -1,43 +1,119 @@
 @import "./normalize.css";
 @import "./reset.css";
-
-@font-face {
-  font-family: Roboto-Regular;
-  src: url(../assets/fonts/Roboto-Regular.ttf);
-}
+@import "./layout-grid.scss";
+@import "./spacing.scss";
+@import "./typography.scss";
 
 :root {
-  --primary-500: #34623F;
-  --primary-600: #2F5A39;
-  --primary-700: #275031;
-  --text-on-primary: #FFFFFF;
+  --blue-100: #E3E7EA;
+  --blue-200: #8A9DA8;
+  --blue-300: #5B7685;
+  --blue-400: #38586A;
+  --blue-500: #153B50;
+  --blue-600: #123549;
+  --blue-700: #0F2D40;
+  --blue-800: #0C2637;
+  --blue-900: #061927;
 
-  --accent-500: #1B5299;
-  --accent-600: #184b91;
-  --accent-700: #144186;
-  --text-on-accent: #FFFFFF;
+  --grey-100: #F8F9FA;
+  --grey-200: #E9ECEF;
+  --grey-300: #DEE2E6;
+  --grey-400: #CED4DA;
+  --grey-500: #ADB5BD;
+  --grey-600: #6C757D;
+  --grey-700: #495057;
+  --grey-800: #343A40;
+  --grey-900: #212529;
 
-  --error-500: #94251b;
+  --green-100: #E7ECE6;
+  --green-200: #9BAE96;
+  --green-300: #738E6C;
+  --green-400: #55754D;
+  --green-500: #375D2D;
+  --green-600: #315528;
+  --green-700: #2A4B22;
+  --green-800: #23411C;
+  --green-900: #163011;
 
-  --text: #000000;
-  --text-subdued: #666666;
-  --border: #999999;
+  --red-100: #F3E5E7;
+  --red-200: #CC929A;
+  --red-300: #B76671;
+  --red-400: #A74652;
+  --red-500: #982543;
+  --red-600: #90212F;
+  --red-700: #851B27;
+  --red-800: #7B1621;
+  --red-900: #6A0D15;
 
-  --space-0: 0rem;
-  --space-025: 0.0625rem;
-  --space-05: 0.125rem;
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-5: 1.25rem;
-  --space-6: 1.5rem;
-  --space-8: 2rem;
-  --space-10: 2.5rem;
-  --space-12: 3rem;
-  --space-16: 4rem;
-  --space-20: 5rem;
-  --space-24: 6rem;
-  --space-28: 7rem;
-  --space-32: 8rem;
+  --orange-100: #EACEB9;
+  --orange-200: #DCAE8B;
+  --orange-300: #CE8E5C;
+  --orange-400: #C47539;
+  --orange-500: #B95D16;
+  --orange-600: #B25513;
+  --orange-700: #AA4B10;
+  --orange-800: #A2410C;
+  --orange-900: #933006;
+
+  --primary: var(--blue-500);
+  --on-primary: var(--grey-100);
+  --primary-variant: var(--blue-200);
+  --on-primary-variant: var(--grey-900);
+  --success: var(--green-500);
+  --on-success: var(--grey-100);
+  --success-variant: var(--green-200);
+  --on-success-variant: var(--grey-900);
+  --error: var(--red-500);
+  --on-error: var(--grey-100);
+  --error-variant: var(--red-200);
+  --on-error-variant: var(--grey-900);
+  --warning: var(--orange-500);
+  --on-warning: var(--grey-100);
+  --warning-variant: var(--orange-200);
+  --on-warning-variant: var(--grey-900);
+
+  --background: var(--grey-100);
+  --on-background: var(--grey-900);
+  --text-subdued: var(--grey-600);
+  --border: var(--grey-800);
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.material-icons-xsm {
+  font-size: 0.75rem;
+}
+
+.material-icons-sm {
+  font-size: 1rem;
+}
+
+.material-icons-m {
+  font-size: 1.5rem;
+}
+
+.material-icons-l {
+  font-size: 3rem;
+}
+
+.material-icons-xl {
+  font-size: 3.5rem;
+}
+
+.shadow-1 {
+  box-shadow: 0px 4px 6px rgba(33, 37, 41, 0.2), 0px 0px 1px rgba(33, 37, 41, 0.32);
+}
+
+.shadow-2 {
+  box-shadow: 0px 2px 2px rgba(33, 37, 41, 0.06), 0px 0px 1px rgba(33, 37, 41, 0.08);
+}
+
+.round-corners-cards {
+  border-radius: 20px;
+}
+
+.round-corners-inputs {
+  border-radius: 8px;
 }
