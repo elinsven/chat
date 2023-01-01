@@ -1,0 +1,24 @@
+<form class="grid-container" [formGroup]="loginForm" (ngSubmit)="submit()">
+  <h1 class="grid-justify-self-center margin-bottom-2">Log in</h1>
+  <div class="margin-bottom-4">
+    <app-button buttonText="Continue with Google" buttonIcon="assets/google_icon.svg" appearance="stroked"
+      type="button"></app-button>
+  </div>
+  <div class="margin-bottom-4">
+    <app-divider></app-divider>
+  </div>
+  <div>
+    <app-input formControlName="email" label="Email" placeholder="Enter your email address..."></app-input>
+  </div>
+  <div class="margin-bottom-6">
+    <app-input formControlName="password" type="password" label="Password"
+      placeholder="Enter your password..."></app-input>
+  </div>
+  <div class="margin-bottom-4">
+    <app-button buttonText="Log in" [isDisabled]="loginForm.invalid"></app-button>
+  </div>
+  <div class="grid-justify-self-center login-links">
+    <a routerLink="/register">Forgot password?</a>
+    <p>No account?&nbsp;<a routerLink="/register">Register</a></p>
+  </div>
+</form>

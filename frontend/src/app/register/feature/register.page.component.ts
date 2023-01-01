@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { SignUpGQL } from '../data-access/sign-up.generated';
 
 @Component({
-  selector: 'app-sign-up-page',
-  templateUrl: './sign-up-page.component.html',
-  styleUrls: ['./sign-up-page.component.scss']
+  selector: 'app-register',
+  templateUrl: './register.page.component.html',
+  styleUrls: ['./register.page.component.scss']
 })
-export class SignUpPageComponent implements OnInit {
+export class RegisterComponent implements OnInit {
   signUpForm: FormGroup;
 
   constructor(private signUpGQL: SignUpGQL, private router: Router) { }

@@ -1,16 +1,16 @@
-import { SignInResult } from '.generated/graphql/types';
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { SignInGQL } from '../data-access/sign-in.generated';
+import { SignInResult } from ".generated/graphql/types";
+import { Component, OnInit } from "@angular/core";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { SignInGQL } from "../data-access/sign-in.generated";
 
 @Component({
-  selector: 'app-sign-in-page',
-  templateUrl: './sign-in-page.component.html',
-  styleUrls: ['./sign-in-page.component.scss']
+  selector: "app-login",
+  templateUrl: "./login.page.component.html",
+  styleUrls: ["./login.page.component.scss"]
 })
-export class SignInPageComponent implements OnInit {
-  signInForm: FormGroup;
+export class LoginComponent implements OnInit {
+  loginForm: FormGroup;
 
   constructor(private signInGQL: SignInGQL, private router: Router) { }
 
@@ -19,14 +19,16 @@ export class SignInPageComponent implements OnInit {
   }
 
   initForm() {
-    this.signInForm = new FormGroup({
+    this.loginForm = new FormGroup({
       email: new FormControl("", [Validators.email, Validators.required]),
       password: new FormControl("", Validators.required)
     })
   }
 
-  submit(formValue: any) {
-    this.signInGQL.mutate({ email: formValue.email, password: formValue.password }).subscribe((result: any) => {
+  submit() {
+    const formValue = this.loginForm.value;
+    console.log(formValue);
+    /* this.signInGQL.mutate({ email: formValue.email, password: formValue.password }).subscribe((result: any) => {
       console.log(result);
       switch (result.data.signIn?.__typename as SignInResult["__typename"]) {
         case "CurrentUser":
@@ -43,6 +45,6 @@ export class SignInPageComponent implements OnInit {
       }
     }, error => {
       console.error("Unexpected error occurred while signing in.", error);
-    })
+    }) */
   }
 }

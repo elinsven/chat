@@ -4,24 +4,22 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ButtonModule } from 'src/app/shared/ui/button/button.module';
 import { DividerModule } from 'src/app/shared/ui/divider/divider.module';
-import { ErrorModule } from 'src/app/shared/ui/error/error.module';
 import { InputModule } from 'src/app/shared/ui/input/input.module';
-import { SignInPageComponent } from './sign-in-page.component';
-import { SignInRoutingModule } from './sign-in-routing.module';
+import { LoginComponent } from './login.page.component';
+import { LoginRoutingModule } from './login-routing.module';
 
 @NgModule({
-  declarations: [SignInPageComponent],
+  declarations: [LoginComponent],
   imports: [
     CommonModule,
     ButtonModule,
     DividerModule,
-    ErrorModule,
     FormsModule,
     InputModule,
     ReactiveFormsModule,
     RouterModule,
-    SignInRoutingModule
+    LoginRoutingModule
   ],
-  exports: [SignInPageComponent]
+  exports: [LoginComponent]
 })
-export class SignInModule { }
+export class LoginModule { }

@@ -1,17 +1,17 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './shared/data-access/auth.guard';
-import { TestComponent } from './test/test.component';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { AuthGuard } from "./shared/data-access/auth.guard";
+import { TestComponent } from "./test/test.component";
 
 const routes: Routes = [
   { path: "", component: TestComponent, canActivate: [AuthGuard] },
   {
-    path: "sign-in",
-    loadChildren: () => import("../app/sign-in/feature/sign-in.module").then(m => m.SignInModule)
+    path: "login",
+    loadChildren: () => import("./login/feature/login.module").then(m => m.LoginModule)
   },
   {
-    path: "sign-up",
-    loadChildren: () => import("../app/sign-up/feature/sign-up.module").then(m => m.SignUpModule)
+    path: "register",
+    loadChildren: () => import("./register/feature/register.module").then(m => m.RegisterModule)
   },
   {
     path: "forgot-password",

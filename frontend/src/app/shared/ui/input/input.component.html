@@ -1,5 +1,8 @@
 <label>
-  <p class="margin-bottom-1">{{ title }}</p>
+  <div class="flex-row">
+    <p [class.error-label]="error">{{ label }} <span class="required" *ngIf="!error && required">*</span></p>
+    <p class="error-label italic" *ngIf="error && errorLabel !== undefined">&nbsp;-&nbsp;{{ errorLabel }}</p>
+  </div>
 </label>
-<input [type]="type" (blur)="onTouched()" (value)="value"
-  [class.error]="form?.get(formControlName)?.touched && form?.get(formControlName)?.invalid">
+<input (keyup)="keyup($event)" (blur)="blur()" [placeholder]="placeholder" [type]="type" (value)="value"
+  [class.error-input]="error">

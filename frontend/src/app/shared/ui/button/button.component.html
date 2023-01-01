@@ -6,6 +6,10 @@
   {{ buttonTitle }}
 </button> -->
 
-<button [type]="type" [disabled]="false" class="primary">
-  {{ buttonTitle }}
+<button [type]="type" [disabled]="isDisabled" class="button primary" [ngClass]="{
+  'stroked':appearance === 'stroked', 
+  'flat':appearance === 'flat'
+}">
+  <img *ngIf="buttonIcon" class="button-icon" [src]="buttonIcon">
+  <p>{{ buttonText }}</p>
 </button>

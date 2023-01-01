@@ -2,8 +2,10 @@
 
 body,
 html {
-  margin: 0;
+  margin: 0 auto;
   height: 100%;
+  max-width: 1366px;
+  padding: 0 calc(100% * 0.04);
 }
 
 .margin-bottom-1 {
@@ -14,29 +16,41 @@ html {
   margin-bottom: var(--space-2);
 }
 
+.margin-bottom-4 {
+  margin-bottom: var(--space-4);
+}
+
+.margin-bottom-6 {
+  margin-bottom: var(--space-6);
+}
+
 .margin-bottom-8 {
   margin-bottom: var(--space-8);
 }
 
-.flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.grid-justify-self-center {
+  justify-self: center;
 }
 
-.flex-row-justify-center {
+.flex-row {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
 }
 
-.flex-row-align-center {
-  display: flex;
-  align-items: center;
-}
-
-.flex-column-center {
+.flex-column {
   display: flex;
   flex-direction: column;
+}
+
+.flex-center {
   justify-content: center;
+  align-items: center;
+}
+
+.flex-justify-center {
+  justify-content: center;
+}
+
+.flex-align-center {
   align-items: center;
 }

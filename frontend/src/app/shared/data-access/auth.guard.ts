@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate {
         if (res) {
           obs.next(true);
         } else {
-          this.router.navigate(["/sign-in"]);
+          this.router.navigate(["/login"]);
           obs.next(false);
         }
       })

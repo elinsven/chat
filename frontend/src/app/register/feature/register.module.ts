@@ -5,11 +5,11 @@ import { ButtonModule } from 'src/app/shared/ui/button/button.module';
 import { DividerModule } from 'src/app/shared/ui/divider/divider.module';
 import { ErrorModule } from 'src/app/shared/ui/error/error.module';
 import { InputModule } from 'src/app/shared/ui/input/input.module';
-import { SignUpPageComponent } from './sign-up-page.component';
-import { SignUpRoutingModule } from './sign-up-routing.module';
+import { RegisterComponent } from "./register.page.component";
+import { RegisterRoutingModule } from './register-routing.module';
 
 @NgModule({
-  declarations: [SignUpPageComponent],
+  declarations: [RegisterComponent],
   imports: [
     CommonModule,
     ButtonModule,
@@ -18,8 +18,8 @@ import { SignUpRoutingModule } from './sign-up-routing.module';
     FormsModule,
     InputModule,
     ReactiveFormsModule,
-    SignUpRoutingModule
+    RegisterRoutingModule
   ],
-  exports: [SignUpPageComponent]
+  exports: [RegisterComponent]
 })
-export class SignUpModule { }
+export class RegisterModule { }
