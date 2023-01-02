@@ -1,7 +1,7 @@
 import { SignInResult } from ".generated/graphql/types";
-import { Component, OnInit } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Component } from "@angular/core";
 import { Router } from "@angular/router";
+import { UserFormLink, UserFormResult } from "src/app/shared/utils/userForm";
 import { SignInGQL } from "../data-access/sign-in.generated";
 
 @Component({
@@ -9,25 +9,23 @@ import { SignInGQL } from "../data-access/sign-in.generated";
   templateUrl: "./login.page.component.html",
   styleUrls: ["./login.page.component.scss"]
 })
-export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
+export class LoginComponent {
+  links: UserFormLink[] = [
+    {
+      path: "/",
+      textInsideAnchor: "Forgot password?"
+    },
+    {
+      path: "/register",
+      textInsideAnchor: "Register",
+      textLeftAnchor: "No account?"
+    }
+  ];
 
   constructor(private signInGQL: SignInGQL, private router: Router) { }
 
-  ngOnInit(): void {
-    this.initForm();
-  }
-
-  initForm() {
-    this.loginForm = new FormGroup({
-      email: new FormControl("", [Validators.email, Validators.required]),
-      password: new FormControl("", Validators.required)
-    })
-  }
-
-  submit() {
-    const formValue = this.loginForm.value;
-    console.log(formValue);
+  submit(formResult: UserFormResult) {
+    console.log(formResult);
     /* this.signInGQL.mutate({ email: formValue.email, password: formValue.password }).subscribe((result: any) => {
       console.log(result);
       switch (result.data.signIn?.__typename as SignInResult["__typename"]) {

@@ -1,0 +1,29 @@
+<form class="grid-container" [formGroup]="form" (ngSubmit)="submitForm.emit(form.value)">
+  <h1 class="grid-justify-self-center margin-bottom-2">{{ header }}</h1>
+  <div class="margin-bottom-4">
+    <app-button buttonText="Continue with Google" buttonIcon="assets/google_icon.svg" appearance="stroked"
+      type="button"></app-button>
+  </div>
+  <div class="margin-bottom-4">
+    <app-divider></app-divider>
+  </div>
+  <div>
+    <app-input formControlName="email" label="Email" placeholder="Enter your email address..."></app-input>
+  </div>
+  <div class="margin-bottom-6">
+    <app-input formControlName="password" type="password" label="Password"
+      placeholder="Enter your password..."></app-input>
+  </div>
+  <div class="margin-bottom-2">
+    <app-button [buttonText]="submitButtonText" [isDisabled]="form.invalid"></app-button>
+  </div>
+  <nav class="grid-justify-self-center links" *ngIf="links.length">
+    <ul>
+      <li *ngFor="let link of links">
+        <span *ngIf="link.textLeftAnchor">{{ link.textLeftAnchor }}&nbsp;</span>
+        <a [routerLink]="link.path">{{ link.textInsideAnchor }}</a>
+        <span *ngIf="link.textRightAnchor">&nbsp;{{ link.textRightAnchor }}</span>
+      </li>
+    </ul>
+  </nav>
+</form>

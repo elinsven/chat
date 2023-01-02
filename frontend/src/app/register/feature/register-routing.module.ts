@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { SignedInGuard } from '../../shared/data-access/signed-in.guard';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { SignedInGuard } from "../../shared/data-access/signed-in.guard";
 import { RegisterComponent } from "./register.page.component";
 
 const routes: Routes = [

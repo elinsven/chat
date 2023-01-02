@@ -1,0 +1,13 @@
+.grid-container {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(auto, 320px);
+  grid-gap: 12px;
+  justify-content: center;
+  align-content: center;
+}
+
+.links {
+  text-align: center;
+}
