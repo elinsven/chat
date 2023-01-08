@@ -8,7 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TestComponent } from './test/test.component';
-import { ForgotPasswordModule } from './forgot-password/feature/forgot-password.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,6 @@ import { ForgotPasswordModule } from './forgot-password/feature/forgot-password.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ForgotPasswordModule,
     FormsModule,
     GraphQLModule,
     HttpClientModule,

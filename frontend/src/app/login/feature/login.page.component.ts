@@ -12,7 +12,7 @@ import { LoginGQL } from "../data-access/login.generated";
 export class LoginComponent {
   links: UserFormLink[] = [
     {
-      path: "/",
+      path: "/forgot-password",
       textInsideAnchor: "Forgot password?"
     },
     {
