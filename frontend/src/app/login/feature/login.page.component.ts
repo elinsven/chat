@@ -1,8 +1,8 @@
-import { SignInResult } from ".generated/graphql/types";
+import { LoginResult } from ".generated/graphql/types";
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { UserFormLink, UserFormResult } from "src/app/shared/utils/userForm";
-import { SignInGQL } from "../data-access/sign-in.generated";
+import { LoginGQL } from "../data-access/login.generated";
 
 @Component({
   selector: "app-login",
@@ -22,27 +22,23 @@ export class LoginComponent {
     }
   ];
 
-  constructor(private signInGQL: SignInGQL, private router: Router) { }
+  constructor(private loginGQL: LoginGQL, private router: Router) { }
 
   submit(formResult: UserFormResult) {
     console.log(formResult);
-    /* this.signInGQL.mutate({ email: formValue.email, password: formValue.password }).subscribe((result: any) => {
-      console.log(result);
-      switch (result.data.signIn?.__typename as SignInResult["__typename"]) {
+    this.loginGQL.mutate({ email: formResult.email, password: formResult.password }).subscribe((result: any) => {
+      switch (result.data.login?.__typename as LoginResult["__typename"]) {
         case "CurrentUser":
-          const token = result.data.signIn?.token;
+          const token = result.data.login?.token;
           sessionStorage.setItem("token", token);
-          this.router.navigate(["/"])
+          this.router.navigate(["/"]);
           break;
         case "IncorrectCredentialsError":
-        case "IncorrectPasswordError":
-          console.log(result.data.signIn?.message);
+          console.log(result.data.login?.message);
           break;
         default:
-          console.error("Unexpected error occurred while signing in.");
+          console.log("Unexpected error occurred while signing in.");
       }
-    }, error => {
-      console.error("Unexpected error occurred while signing in.", error);
-    }) */
+    });
   }
 }

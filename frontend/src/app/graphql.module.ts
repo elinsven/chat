@@ -1,22 +1,22 @@
-import { NgModule } from '@angular/core';
-import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
-import { ApolloClientOptions, ApolloLink, InMemoryCache } from '@apollo/client/core';
-import { HttpLink } from 'apollo-angular/http';
-import { environment } from 'src/environments/environment';
-import { setContext } from '@apollo/client/link/context';
+import { NgModule } from "@angular/core";
+import { ApolloModule, APOLLO_OPTIONS } from "apollo-angular";
+import { ApolloLink, InMemoryCache } from "@apollo/client/core";
+import { HttpLink } from "apollo-angular/http";
+import { environment } from "src/environments/environment";
+import { setContext } from "@apollo/client/link/context";
 
 const uri = environment.api;
 
-export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
-
+function createApollo(httpLink: HttpLink) {
   const basic = setContext((operation, context) => ({
     headers: {
-      Accept: 'charset=utf-8'
+      Accept: "application/json, */*"
     }
   }));
 
   const auth = setContext((operation, context) => {
-    const token = sessionStorage.getItem('token');
+    const token = sessionStorage.getItem("token");
+
     if (token === null) {
       return {};
     } else {
@@ -43,8 +43,8 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
     {
       provide: APOLLO_OPTIONS,
       useFactory: createApollo,
-      deps: [HttpLink],
-    },
-  ],
+      deps: [HttpLink]
+    }
+  ]
 })
 export class GraphQLModule { }

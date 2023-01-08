@@ -1,1 +1,0 @@
-npx prisma migrate dev --name "message" to migrate and re-generate Prisma Client

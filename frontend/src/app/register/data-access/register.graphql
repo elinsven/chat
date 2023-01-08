@@ -1,0 +1,17 @@
+mutation Register($email: String!, $password: String!) {
+  register(email: $email, password: $password) {
+    __typename
+
+    ... on CurrentUser {
+      token
+      user {
+        id
+        email
+      }
+    }
+
+    ... on EmailAddressConflictError {
+      message
+    }
+  }
+}

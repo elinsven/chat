@@ -1,0 +1,26 @@
+#Flytta till egen mapp med error-hantering
+interface Error {
+  message: String
+}
+
+type User {
+  id: ID
+  email: String
+}
+
+type CurrentUser {
+  token: String
+  user: User
+}
+
+type IncorrectCredentialsError implements Error {
+  message: String
+}
+
+type EmailAddressConflictError implements Error {
+  message: String
+}
+
+union LoginResult = CurrentUser | IncorrectCredentialsError
+
+union RegisterResult = CurrentUser | EmailAddressConflictError

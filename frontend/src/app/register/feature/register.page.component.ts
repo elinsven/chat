@@ -1,7 +1,8 @@
+import { CurrentUser, EmailAddressConflictError, RegisterResult } from ".generated/graphql/types";
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { UserFormLink, UserFormResult } from "src/app/shared/utils/userForm";
-import { SignUpGQL } from "../data-access/sign-up.generated";
+import { RegisterGQL } from "../data-access/register.generated";
 
 @Component({
   selector: "app-register",
@@ -17,17 +18,27 @@ export class RegisterComponent {
     }
   ];
 
-  constructor(private signUpGQL: SignUpGQL, private router: Router) { }
+  constructor(
+    private registerGQL: RegisterGQL, private router: Router
+  ) { }
 
   submit(formResult: UserFormResult) {
     console.log(formResult);
-    /* this.signUpGQL.mutate({ email: formValue.email, password: formValue.password }).subscribe((result: any) => {
-      console.log(result);
-      const token = result.data.signUp?.token;
-      sessionStorage.setItem("token", token);
-      this.router.navigate(["/"]);
-    }, error => {
-      console.error("Unexpected error occurred while signing in.", error);
-    })*/
+    this.registerGQL.mutate({ email: formResult.email, password: formResult.password }).subscribe(({ data }) => {
+      switch (data.register?.__typename as RegisterResult["__typename"]) {
+        case "CurrentUser":
+          const data1 = data.register as CurrentUser;
+          const token = data1?.token;
+          sessionStorage.setItem("token", token);
+          this.router.navigate(["/"]);
+          break;
+        case "EmailAddressConflictError":
+          const data2 = data.register as EmailAddressConflictError;
+          console.log(data2?.message);
+          break;
+        default:
+          console.log("Unexpected error occurred while register user.");
+      }
+    });
   }
 }

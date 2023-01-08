@@ -1,0 +1,9 @@
+input AuthenticateInput {
+  email: String!
+  password: String!
+}
+
+type Mutation {
+  register(email: String!, password: String!): RegisterResult
+  login(email: String!, password: String!): LoginResult
+}

@@ -1,0 +1,17 @@
+mutation Login($email: String!, $password: String!) {
+  login(email: $email, password: $password) {
+    __typename
+
+    ... on CurrentUser {
+      token
+      user {
+        id
+        email
+      }
+    }
+
+    ... on IncorrectCredentialsError {
+      message
+    }
+  }
+}

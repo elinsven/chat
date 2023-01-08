@@ -1,3 +1,2 @@
-export * from "./User";
-export * from "./Auth";
-export * from "./ErrorHandling"; 
+export { default as typeDefs } from "./typeDefs";
+export { default as resolvers } from "./resolvers";

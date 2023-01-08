@@ -2,15 +2,15 @@ import * as jwt from "jsonwebtoken";
 import * as dotenv from 'dotenv';
 dotenv.config();
 
-export interface AuthTokenPayload {
+export interface Context {
   userId: number;
 }
 
-export function decodeAuthHeader(authHeader: String): AuthTokenPayload {
+export function decodeAuthHeader(authHeader: string): Context {
   const token = authHeader.replace("Bearer ", "");
 
   if (!token) {
-    throw new Error("No token found");
+    return null;
   }
-  return jwt.verify(token, process.env.APP_SECRET) as AuthTokenPayload;
+  return jwt.verify(token, process.env.JWT_SECRET) as Context;
 }
